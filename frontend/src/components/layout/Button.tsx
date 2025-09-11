@@ -7,6 +7,7 @@ export type ButtonProps = {
   variant?: Variant;
   onClick?: () => void;
   className?: string;
+  type?: 'button' | 'submit' | 'reset';
 };
 
 const variantStyles: Record<Variant, string> = {
@@ -16,12 +17,19 @@ const variantStyles: Record<Variant, string> = {
   ghost: 'bg-transparent text-gray-800 ',
 };
 
-export default function Button({ children, variant = 'primary', onClick, className }: ButtonProps) {
+export default function Button({
+  children,
+  variant = 'primary',
+  onClick,
+  className,
+  type,
+}: ButtonProps) {
   if (variant === 'ghost') {
     return (
       <button
         className={`${variantStyles[variant]} ${className} cursor-pointer rounded-md`}
         onClick={onClick}
+        type={type}
       >
         {children}
       </button>
@@ -32,6 +40,7 @@ export default function Button({ children, variant = 'primary', onClick, classNa
     <button
       className={`flex cursor-pointer items-center gap-2 rounded-md text-sm ${variantStyles[variant]} ${className} text-sm transition duration-300 disabled:cursor-not-allowed disabled:opacity-50`}
       onClick={onClick}
+      type={type}
     >
       {children}
     </button>
