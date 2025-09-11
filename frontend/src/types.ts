@@ -13,12 +13,11 @@ export type InternshipType = {
   location: string;
   duration: string;
   stipend: string;
-  applicationDeadline: Date ;
+  applicationDeadline: Date;
   startDate: Date;
   requiredSkills: string[];
   preferredSkills?: string[];
   applications?: number;
-
 };
 
 export type ApplicationType = {
@@ -31,8 +30,39 @@ export type ApplicationType = {
   graduationDate: Date;
   university: string;
   degree: string;
-  gpa:  number;
+  gpa: number;
   coverLetter: string;
   status: 'pending' | 'under review' | 'accepted' | 'rejected';
   appliedAt: Date;
-}
+};
+
+export type StatsType = {
+  title: string;
+  value: string;
+  type: string;
+};
+
+export type StatusDistributionType = {
+  status: string;
+  count: number;
+};
+
+export type SentimentAnalysisType = {
+  sentiment: string;
+  count: number;
+};
+
+export type DashboardDataType = {
+  stats: StatsType[];
+  statusDistribution: StatusDistributionType[];
+  sentimentAnalysis: SentimentAnalysisType[];
+};
+
+export type RecentApplicantType = {
+  id: number;
+  fullName: string;
+  university: string;
+  degree: string;
+  status: 'pending' | 'under review' | 'accepted' | 'rejected';
+  aiScore: number;
+};

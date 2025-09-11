@@ -1,7 +1,11 @@
 import Card from '@/components/dashboard/Card';
 import PageHeading from '@/components/PageHeading';
-import { Briefcase, CircleCheckBig, Clock, Timer, Users } from 'lucide-react';
+import { Briefcase, CircleCheckBig, Clock, Users } from 'lucide-react';
 import React from 'react';
+import { dummyDashboardData, recentApplicantsDummyData } from '@/lib/DummyData';
+import ApplicationStatusChart from '@/components/charts/ApplicationStatusChart';
+import FeedbackSentimentPieChart from '@/components/charts/FeedbackSentimentChart';
+import RecentApplicantItem from '@/components/dashboard/RecentApplicantItem';
 
 export default function DashboardPage() {
   return (
@@ -54,26 +58,28 @@ export default function DashboardPage() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
-          <Card className="flex flex-col gap-4">
-            <h2 className="text-lg font-medium">Application Trends</h2>
-            <div className="flex flex-1 items-center justify-center rounded-md border-2 border-dashed border-gray-300 p-4 text-gray-400">
-              <Timer size={48} />
+          <Card className="flex h-100 flex-col gap-4">
+            <h2 className="text-lg font-medium">Application Status Distribution</h2>
+            <div className="flex flex-1 items-center justify-center rounded-md">
+              <ApplicationStatusChart data={dummyDashboardData.statusDistribution} />
             </div>
           </Card>
 
-          <Card className="flex flex-col gap-4">
-            <h2 className="text-lg font-medium">Application Trends</h2>
-            <div className="flex flex-1 items-center justify-center rounded-md border-2 border-dashed border-gray-300 p-4 text-gray-400">
-              <Timer size={48} />
+          <Card className="flex h-100 flex-col gap-4">
+            <h2 className="text-lg font-medium">Feedback Sentiment Analysis</h2>
+            <div className="flex flex-1 items-center justify-center rounded-md">
+              <FeedbackSentimentPieChart data={dummyDashboardData.sentimentAnalysis} />
             </div>
           </Card>
         </div>
 
         <div>
           <Card className="flex flex-col gap-4">
-            <h2 className="text-lg font-medium">Application Trends</h2>
-            <div className="flex flex-1 items-center justify-center rounded-md border border-gray-300 p-4 text-center text-gray-400">
-              <h2>No data available</h2>
+            <h2 className="text-lg font-medium">Recent Applications</h2>
+            <div className="flex flex-1 flex-col justify-center gap-3 rounded-md">
+              {recentApplicantsDummyData.map((applicant, index) => (
+                <RecentApplicantItem key={index} applicant={applicant} />
+              ))}
             </div>
           </Card>
         </div>
