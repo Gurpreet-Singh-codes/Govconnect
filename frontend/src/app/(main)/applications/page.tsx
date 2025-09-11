@@ -1,6 +1,9 @@
+import ApplicationListItem from '@/components/applications/ApplicationListItem';
 import PageHeading from '@/components/PageHeading';
 import { Search } from 'lucide-react';
 import React from 'react';
+import { dummyApplications } from '@/lib/DummyData';
+import { ApplicationType } from '@/types';
 
 export default function ApplicationsPage() {
   return (
@@ -19,6 +22,12 @@ export default function ApplicationsPage() {
               className="palceholder:text-sm w-full border-0 p-0 text-sm"
             />
           </div>
+        </div>
+
+         <div className='flex  gap-3 flex-col'>
+          {dummyApplications.map((application: ApplicationType) => (
+            <ApplicationListItem key={application.id} application={application} />
+          ))}
         </div>
       </div>
     </section>

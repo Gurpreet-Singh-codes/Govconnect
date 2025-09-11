@@ -1,8 +1,10 @@
+import InternshipListItem from '@/components/internships/InternshipListItem';
 import Button from '@/components/layout/Button';
 import PageHeading from '@/components/PageHeading';
 import { Plus, Search } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import { dummyInternships } from '@/lib/DummyData';
 
 export default function InternshipsPage() {
   return (
@@ -29,6 +31,12 @@ export default function InternshipsPage() {
               <Plus size={20} /> <p className="hidden md:block">New Internship</p>
             </Button>
           </Link>
+        </div>
+
+        <div className='flex  gap-3 flex-col'>
+          {dummyInternships.map((internship) => (
+            <InternshipListItem key={internship.id} internship={internship} />
+          ))}
         </div>
       </div>
     </section>
