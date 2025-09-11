@@ -9,8 +9,8 @@ export default function PageHeading({
 }) {
   return (
     <div>
-      <h2 className="text-xl font-semibold md:text-3xl">{children}</h2>
-      {subText && <p className="text-sm text-gray-500">{subText}</p>}
+      <h2 className="text-xl font-bold md:text-3xl">{children}</h2>
+      {subText && <p className="mt-1 text-sm text-gray-500">{subText}</p>}
     </div>
   );
 }
