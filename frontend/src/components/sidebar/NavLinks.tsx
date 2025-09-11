@@ -11,6 +11,7 @@ import {
   Upload,
 } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 export const navlinks: NavlinkType[] = [
@@ -40,6 +41,8 @@ export const quickLinks: NavlinkType[] = [
 
 export default function NavLinks() {
   const { closeSidebar } = useSidebar();
+  const path = usePathname();
+
   return (
     <>
       <div>
@@ -51,7 +54,7 @@ export default function NavLinks() {
             <li key={link.href} onClick={closeSidebar}>
               <Link
                 href={link.href}
-                className={`flex items-center gap-2 rounded-sm p-2 font-medium transition duration-300 hover:bg-indigo-100/40 hover:text-indigo-500`}
+                className={`flex items-center gap-2 rounded-sm p-2 transition duration-300 hover:bg-indigo-100/40 hover:text-indigo-500 ${path === link.href ? 'border-r-3 border-indigo-500 bg-indigo-100/40 text-indigo-500' : ''}`}
               >
                 <span>{link.icon}</span>
                 <span className="font-medium">{link.label}</span>
@@ -69,7 +72,7 @@ export default function NavLinks() {
             <li key={link.href} onClick={closeSidebar}>
               <Link
                 href={link.href}
-                className={`flex items-center gap-2 rounded-sm p-2 font-medium transition duration-300 hover:text-black`}
+                className={`flex items-center gap-2 rounded-sm p-2 font-medium transition duration-300 hover:text-black ${path === link.href ? 'text-black' : ''}`}
               >
                 <span>{link.icon}</span>
                 <span className="font-medium">{link.label}</span>

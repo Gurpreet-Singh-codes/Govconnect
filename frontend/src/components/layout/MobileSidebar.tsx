@@ -11,7 +11,7 @@ export default function MobileSidebar() {
   return (
     <>
       <aside
-        className={`fixed z-50 flex h-full w-84 flex-col border-r border-stone-200 bg-white md:hidden ${
+        className={`fixed z-50 flex h-full w-84 flex-col border-r border-stone-200 bg-white lg:hidden ${
           isOpen ? 'left-0' : '-left-100'
         } transition-all duration-300`}
       >
@@ -36,7 +36,7 @@ export default function MobileSidebar() {
       </aside>
 
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-black/50 md:hidden" onClick={closeSidebar} />
+        <div className="fixed inset-0 z-40 bg-black/50 lg:hidden" onClick={closeSidebar} />
       )}
     </>
   );

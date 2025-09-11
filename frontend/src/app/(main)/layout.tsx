@@ -11,7 +11,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         <MobileHeader />
         {/* Main content */}
         <div className="flex-1 overflow-y-auto">
-          <main className="min-h-full bg-gray-100 p-4 lg:p-10">{children}</main>
+          <main className="min-h-full bg-gray-100 p-6 lg:p-8">{children}</main>
         </div>
       </div>
     </div>
