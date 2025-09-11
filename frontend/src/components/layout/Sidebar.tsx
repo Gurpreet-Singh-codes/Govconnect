@@ -12,7 +12,7 @@ export default function Sidebar() {
           <Link href={'/dashboard'}>
             <div className="flex items-center gap-2">
               <div>
-                <Image src="/images/emblem.png" alt="Logo" width={48} height={38} />
+                <Image src="/emblem.png" alt="Logo" width={48} height={38} />
               </div>
               <div>
                 <h1 className="text-sm font-semibold">GovConnect</h1>

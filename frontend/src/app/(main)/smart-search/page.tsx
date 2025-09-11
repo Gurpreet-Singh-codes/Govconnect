@@ -1,5 +1,7 @@
 import PageHeading from '@/components/PageHeading';
+import SearchBox from '@/components/smart-search/SearchBox';
 import React from 'react';
+import Suggestions from './Suggestions';
 
 export default function SmartSearchPage() {
   return (
@@ -8,6 +10,8 @@ export default function SmartSearchPage() {
         <PageHeading subText="Search for exactly what you're looking for.">
           Smart Search
         </PageHeading>
+        <SearchBox />
+        <Suggestions />
       </div>
     </section>
   );

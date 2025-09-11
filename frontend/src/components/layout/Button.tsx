@@ -30,7 +30,7 @@ export default function Button({ children, variant = 'primary', onClick, classNa
 
   return (
     <button
-      className={`flex cursor-pointer items-center gap-2 rounded-md text-sm ${variantStyles[variant]} ${className} transition duration-300 disabled:cursor-not-allowed disabled:opacity-50`}
+      className={`flex cursor-pointer items-center gap-2 rounded-md text-sm ${variantStyles[variant]} ${className} text-sm transition duration-300 disabled:cursor-not-allowed disabled:opacity-50`}
       onClick={onClick}
     >
       {children}

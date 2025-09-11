@@ -18,7 +18,7 @@ export default function MobileSidebar() {
         <header className="flex h-16 items-center justify-between border-b border-stone-200 px-4">
           <div className="flex items-center gap-2">
             <div>
-              <Image src="/images/emblem.png" alt="Logo" width={48} height={48} />
+              <Image src="/emblem.png" alt="Logo" width={48} height={48} />
             </div>
             <div>
               <h1 className="text-sm font-semibold">GovConnect</h1>

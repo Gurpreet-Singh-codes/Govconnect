@@ -13,7 +13,7 @@ export default function MobileHeader() {
       <Link href={'/dashboard'}>
         <div className="flex items-center gap-2">
           <div>
-            <Image src="/images/emblem.png" alt="Logo" width={48} height={40} />
+            <Image src="/emblem.png" alt="Logo" width={48} height={40} />
           </div>
           <div>
             <h1 className="text-sm font-semibold">GovConnect</h1>
