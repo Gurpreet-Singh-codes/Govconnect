@@ -2,6 +2,7 @@
 import os
 import bcrypt
 import jwt
+import functools
 from datetime import datetime, timedelta
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -133,21 +134,18 @@ def verify_token(token):
         return None
 
 def token_required(f):
+    @functools.wraps(f) 
     def decorated(*args, **kwargs):
         token = None
-        
         if 'Authorization' in request.headers:
             auth_header = request.headers['Authorization']
             if auth_header.startswith('Bearer '):
                 token = auth_header.split(' ')[1]
-        
         if not token:
             return jsonify({'error': 'Token is missing'}), 401
-        
         payload = verify_token(token)
         if not payload:
             return jsonify({'error': 'Token is invalid'}), 401
-        
         request.current_user = payload
         return f(*args, **kwargs)
     return decorated

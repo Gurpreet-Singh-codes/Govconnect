@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: govconnect-backend
+    env: python
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt
+      python -c "import nltk; nltk.download('punkt'); nltk.download('averaged_perceptron_tagger')"
+    startCommand: gunicorn run:app
+    envVars:
+      - key: DATABASE_URL
+        value: 'postgresql://neondb_owner:npg_YMeiwG25hqgU@ep-ancient-unit-adatqdo8-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+      - key: SECRET_KEY
+        generateValue: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://your-frontend-domain.com
+      - key: FLASK_ENV
+        value: production
+      - key: DEBUG
+        value: false
+
