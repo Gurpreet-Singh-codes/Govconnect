@@ -3,6 +3,7 @@ services:
     name: govconnect-backend
     env: python
     plan: free
+    pythonVersion: 3.12.9
     buildCommand: |
       pip install -r requirements.txt
       python -c "import nltk; nltk.download('punkt'); nltk.download('averaged_perceptron_tagger')"
